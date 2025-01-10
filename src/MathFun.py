@@ -8,17 +8,26 @@ class MathFun:
 
         match operator:
             case 'max':
-                raise NotImplementedError
+                if ope1 == ope2:
+                    raise EqualityException
+                else :
+                    if ope1 > ope2:
+                        print(ope1)
+                    else :
+                        print(ope2)
             case 'is_sum_even':
-                raise NotImplementedError
+                if ope1 % 2:
+                    print("The number 1 is paire")
+                else :
+                    print("The number 1 is impaire")
             case _:
-                raise NotImplementedError
+                raise FunOperatorNotSupportedException
 
 class MathFunException(Exception):
     pass
 
 class FunOperatorNotSupportedException(MathFunException):
-    pass
+    print("The operator is invalid")
 
 class EqualityException(MathFunException):
-    pass
+    print("Numbers are the same")
